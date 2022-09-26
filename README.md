@@ -21,7 +21,6 @@ without the need to re-write/update the smart contract.
 
 The **AcmeCorp** smart contract is located in `./contracts/AcmeCorp.sol`, and it provides numerous methods for Acme Corporation to manage their supply chain.
 
-
 Test Suite
 ----------
 
@@ -332,4 +331,3 @@ BALANCES: WIDGETS (ID: 0)
 0xb137eb816932c6e748089b252ECEAc80d0dd2A94: 0
 0xF38981b428eeF97d9D25076b375E931398eda935: 0
 ```
-
