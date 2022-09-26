@@ -1,3 +1,5 @@
+[![Truffle Tests](https://github.com/carlcraig/acmecorp/actions/workflows/truffle-tests.yml/badge.svg)](https://github.com/carlcraig/acmecorp/actions/workflows/truffle-tests.yml)
+
 AcmeCorp
 ========
 
