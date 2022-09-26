@@ -54,7 +54,7 @@ contract AcmeCorp is ERC1155Upgradeable {
     _itemPricesWei[WIDGETS_TOKEN_ID] = 800000000000000;
   }
 
-  modifier administratorOwnly {
+  modifier administratorOnly {
     require(tx.origin == _administrator); //same as the if above
     _; //tells that this modifier should be executed before the code
   }
@@ -64,7 +64,7 @@ contract AcmeCorp is ERC1155Upgradeable {
     _; //tells that this modifier should be executed before the code
   }
 
-  function getAdministrator() public view administratorOwnly returns(address) {
+  function getAdministrator() public view administratorOnly returns(address) {
     return _administrator;
   }
 
@@ -73,7 +73,7 @@ contract AcmeCorp is ERC1155Upgradeable {
     return _itemPricesWei[_itemId];
   }
 
-  function setItemPriceWei(uint256 _itemId, uint256 _value) public administratorOwnly {
+  function setItemPriceWei(uint256 _itemId, uint256 _value) public administratorOnly {
     _itemPricesWei[_itemId] = _value;
   }
 
@@ -87,7 +87,7 @@ contract AcmeCorp is ERC1155Upgradeable {
     return _warehouseManagerMapping[warehouseManager];
   }
 
-  function addWarehouseManager(address newWarehouseManager) public administratorOwnly {
+  function addWarehouseManager(address newWarehouseManager) public administratorOnly {
     require(!_warehouseManagerMapping[newWarehouseManager].exists, "warehouseManager already exists");
     _warehouseManagerMapping[newWarehouseManager] = WarehouseManager(newWarehouseManager, true);
     _warehouseManagerList.push(newWarehouseManager);
@@ -95,7 +95,7 @@ contract AcmeCorp is ERC1155Upgradeable {
   }
 
   // should consider removing warehouse manager by index instead of address to save gas on iterating array
-  function removeWarehouseManager(address warehouseManager) public administratorOwnly {
+  function removeWarehouseManager(address warehouseManager) public administratorOnly {
     require(_warehouseManagerMapping[warehouseManager].exists, "warehouseManager does not exist");
     delete _warehouseManagerMapping[warehouseManager];
     uint warehouseManagerIndex;
