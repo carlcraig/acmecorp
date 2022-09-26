@@ -28,6 +28,11 @@ Test Suite
 
 The entire smart contract is covered by a truffle test suite located in `./tests/AcmeCorp.js`
 
+Migrations
+----------
+
+The migrations for deploying smart contracts are located in `./migrations/*.js`
+
 CLI
 ---
 
